@@ -1,0 +1,12 @@
+{
+  "id": "echo",
+  "name": "Echo test (0800/301)",
+  "category": "NETWORK",
+  "mti": "0800",
+  "fields": {
+    "7": "${TRANSMISSION_DATETIME}",
+    "11": "${STAN}",
+    "70": "301"
+  },
+  "validation": { "name": "echo", "expectedResponseCode": "00", "echoFields": [7, 11, 70] }
+}

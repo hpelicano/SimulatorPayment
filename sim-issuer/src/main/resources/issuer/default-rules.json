@@ -1,0 +1,43 @@
+{
+  "defaultResponseCode": "00",
+  "defaultDelayMs": 0,
+  "excludeFromResponse": [14, 35, 36, 45, 52, 53, 55],
+  "generateAuthCode": true,
+  "rules": [
+    {
+      "name": "Tarjeta bloqueada (BIN 999999)",
+      "match": { "binPrefixes": ["999999"] },
+      "action": { "responseCode": "62" }
+    },
+    {
+      "name": "Fondos insuficientes (monto > 100000.00)",
+      "match": { "mti": "0[12]00", "amountMin": 10000001 },
+      "action": { "responseCode": "51" }
+    },
+    {
+      "name": "Timeout forzado (monto 999.99)",
+      "match": { "fields": { "4": "000000099999" } },
+      "action": { "noResponse": true }
+    },
+    {
+      "name": "Respuesta lenta (monto 555.55)",
+      "match": { "fields": { "4": "000000055555" } },
+      "action": { "responseCode": "00", "delayMs": 3000 }
+    },
+    {
+      "name": "Consulta de saldo",
+      "match": { "processingCode": "31.*" },
+      "action": { "responseCode": "00", "setFields": { "54": "1001032C000000150000" } }
+    },
+    {
+      "name": "Reversos",
+      "match": { "mti": "04[02]0" },
+      "action": { "responseCode": "00" }
+    },
+    {
+      "name": "Gestion de red",
+      "match": { "mti": "08.0" },
+      "action": { "responseCode": "00" }
+    }
+  ]
+}

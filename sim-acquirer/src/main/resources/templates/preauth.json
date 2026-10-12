@@ -1,0 +1,31 @@
+{
+  "id": "preauth",
+  "name": "Preautorizacion",
+  "category": "POS",
+  "mti": "0100",
+  "variables": {
+    "PAN": "4761739001010010",
+    "TRACK2": "4761739001010010=25122011143804400000",
+    "AMOUNT": "000000010000"
+  },
+  "fields": {
+    "2": "${PAN}",
+    "3": "000000",
+    "4": "${AMOUNT}",
+    "7": "${TRANSMISSION_DATETIME}",
+    "11": "${STAN}",
+    "12": "${LOCAL_TIME}",
+    "13": "${LOCAL_DATE}",
+    "17": "${LOCAL_DATE}",
+    "22": "${POS_ENTRY_MODE:051}",
+    "25": "00",
+    "32": "${ACQUIRER_ID:12345678901}",
+    "35": "${TRACK2}",
+    "37": "${RRN}",
+    "41": "${TERMINAL_ID:TERM0001}",
+    "42": "${MERCHANT_ID:MERCHANT0000001}",
+    "43": "${CARD_ACCEPTOR:SIMULATOR STORE        BUENOS AIRES   AR}",
+    "49": "${CURRENCY:032}"
+  },
+  "validation": { "name": "preauth", "expectedResponseCode": "00" }
+}

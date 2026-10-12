@@ -1,0 +1,22 @@
+{
+  "id" : "base24-pos",
+  "name" : "BASE24 POS External Message (ISO)",
+  "description" : "BASE24-pos ISO external message: 12 byte 'ISO' header (product 02, release 60, status 000, originator, responder), ASCII hex bitmap, ASCII data. P-52 PIN as 16 hex chars, private fields P-60..P-63 and S-120..S-127 LLL.",
+  "extends" : "iso87-ascii",
+  "bitmapEncoding" : "HEX_ASCII",
+  "framing" : "LEN2_BINARY",
+  "header" : {
+    "length" : 12,
+    "encoding" : "ASCII",
+    "defaultValue" : "ISO026000050",
+    "responseRule" : "BASE24"
+  },
+  "fields" : {
+    "52" : { "name" : "PIN Data (hex)", "type" : "B", "lengthType" : "FIXED", "length" : 8, "encoding" : "ASCII", "sensitive" : true },
+    "60" : { "name" : "BASE24 Terminal Data", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 19 },
+    "61" : { "name" : "BASE24 Card Issuer-Category-Response Code", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 22 },
+    "63" : { "name" : "BASE24 Additional Data (tokens)", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999, "subFormat" : "BASE24_TOKENS" },
+    "64" : { "name" : "Primary MAC (hex)", "type" : "B", "lengthType" : "FIXED", "length" : 8, "encoding" : "ASCII" },
+    "128" : { "name" : "Secondary MAC (hex)", "type" : "B", "lengthType" : "FIXED", "length" : 8, "encoding" : "ASCII" }
+  }
+}

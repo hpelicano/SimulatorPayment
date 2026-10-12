@@ -1,0 +1,19 @@
+{
+  "id" : "iso93-ascii",
+  "name" : "ISO 8583:1993 ASCII",
+  "description" : "ISO 8583 version 1993 (MTI 1xxx). Overrides the 1987 field layout where the 1993 standard differs.",
+  "extends" : "iso87-ascii",
+  "fields" : {
+    "12" : { "name" : "Date and Time, Local Transaction (YYMMDDhhmmss)", "type" : "N", "lengthType" : "FIXED", "length" : 12 },
+    "22" : { "name" : "POS Data Code", "type" : "AN", "lengthType" : "FIXED", "length" : 12 },
+    "24" : { "name" : "Function Code", "type" : "N", "lengthType" : "FIXED", "length" : 3 },
+    "25" : { "name" : "Message Reason Code", "type" : "N", "lengthType" : "FIXED", "length" : 4 },
+    "26" : { "name" : "Card Acceptor Business Code", "type" : "N", "lengthType" : "FIXED", "length" : 4 },
+    "30" : { "name" : "Amounts, Original", "type" : "N", "lengthType" : "FIXED", "length" : 24 },
+    "39" : { "name" : "Action Code", "type" : "N", "lengthType" : "FIXED", "length" : 3 },
+    "43" : { "name" : "Card Acceptor Name/Location", "type" : "ANS", "lengthType" : "LLVAR", "length" : 99 },
+    "53" : { "name" : "Security Related Control Information", "type" : "B", "lengthType" : "LLVAR", "length" : 48 },
+    "56" : { "name" : "Original Data Elements", "type" : "N", "lengthType" : "LLVAR", "length" : 35 },
+    "72" : { "name" : "Data Record", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999 }
+  }
+}

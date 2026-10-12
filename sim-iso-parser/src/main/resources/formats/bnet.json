@@ -1,0 +1,17 @@
+{
+  "id" : "bnet",
+  "name" : "BNET (template)",
+  "description" : "Editable template for BNET network messages: ASCII data, ASCII hex bitmap, 4 byte ASCII length framing. Adjust header and private fields to the official network specification.",
+  "extends" : "iso87-ascii",
+  "bitmapEncoding" : "HEX_ASCII",
+  "numericEncoding" : "ASCII",
+  "textEncoding" : "ASCII",
+  "lengthEncoding" : "ASCII",
+  "framing" : "LEN4_ASCII",
+  "header" : { "length" : 0 },
+  "fields" : {
+    "52" : { "name" : "PIN Data (hex)", "type" : "B", "lengthType" : "FIXED", "length" : 8, "encoding" : "ASCII", "sensitive" : true },
+    "64" : { "name" : "MAC (hex)", "type" : "B", "lengthType" : "FIXED", "length" : 8, "encoding" : "ASCII" },
+    "128" : { "name" : "MAC (hex)", "type" : "B", "lengthType" : "FIXED", "length" : 8, "encoding" : "ASCII" }
+  }
+}

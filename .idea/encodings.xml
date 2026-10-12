@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/sim-acquirer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-acquirer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-api-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-api-client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-app/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-app/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-base24/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-base24/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-crypto/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-crypto/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-iso-parser/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-iso-parser/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-issuer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-issuer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-persistence/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-persistence/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-regression/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-regression/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-ssh/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-ssh/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-stats/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-stats/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-stress/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-stress/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-transport/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-transport/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-ui/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-ui/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-validator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sim-validator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,30 @@
+{
+  "id" : "visa-base1",
+  "name" : "VISA BASE I (V.I.P.)",
+  "description" : "VISA BASE I: 22-byte binary header with embedded total length (bytes 4-5), BCD MTI and numerics, EBCDIC text, binary 1-byte length prefixes. Field 62/63 kept as raw bitmapped binary.",
+  "extends" : "iso87-ascii",
+  "mtiEncoding" : "BCD",
+  "bitmapEncoding" : "BINARY",
+  "numericEncoding" : "BCD",
+  "textEncoding" : "EBCDIC",
+  "lengthEncoding" : "BINARY",
+  "framing" : "LEN2_BINARY_HEADER",
+  "header" : {
+    "length" : 22,
+    "encoding" : "BINARY",
+    "defaultValue" : "16010200000000000000000000000000000000000000",
+    "lengthOffset" : 3,
+    "lengthSize" : 2,
+    "lengthIncludesHeader" : true,
+    "responseRule" : "ECHO"
+  },
+  "fields" : {
+    "44" : { "name" : "Additional Response Data", "type" : "AN", "lengthType" : "LLVAR", "length" : 25 },
+    "48" : { "name" : "Additional Data - Private", "type" : "ANS", "lengthType" : "LLVAR", "length" : 255 },
+    "55" : { "name" : "ICC Data (EMV)", "type" : "B", "lengthType" : "LLVAR", "length" : 255, "subFormat" : "BER_TLV" },
+    "60" : { "name" : "Additional POS Information", "type" : "N", "lengthType" : "LLVAR", "length" : 12, "padNibble" : "RIGHT" },
+    "62" : { "name" : "Custom Payment Service Fields (bitmapped)", "type" : "B", "lengthType" : "LLVAR", "length" : 255 },
+    "63" : { "name" : "V.I.P. Private Use Fields (bitmapped)", "type" : "B", "lengthType" : "LLVAR", "length" : 255 },
+    "126" : { "name" : "Visa Private Use Fields (bitmapped)", "type" : "B", "lengthType" : "LLVAR", "length" : 255 }
+  }
+}

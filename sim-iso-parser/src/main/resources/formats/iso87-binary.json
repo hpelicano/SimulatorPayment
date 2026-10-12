@@ -1,0 +1,12 @@
+{
+  "id" : "iso87-binary",
+  "name" : "ISO 8583:1987 BCD/Binary",
+  "description" : "ISO 8583:1987 with packed BCD numerics and BCD length prefixes, ASCII text, binary bitmap.",
+  "extends" : "iso87-ascii",
+  "mtiEncoding" : "BCD",
+  "bitmapEncoding" : "BINARY",
+  "numericEncoding" : "BCD",
+  "textEncoding" : "ASCII",
+  "lengthEncoding" : "BCD",
+  "fields" : { }
+}

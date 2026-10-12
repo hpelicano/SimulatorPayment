@@ -1,0 +1,17 @@
+{
+  "id" : "base24-atm",
+  "name" : "BASE24 ATM External Message (ISO)",
+  "description" : "BASE24-atm ISO external message: header product indicator 01. S-126 carries BASE24 tokens.",
+  "extends" : "base24-pos",
+  "header" : {
+    "length" : 12,
+    "encoding" : "ASCII",
+    "defaultValue" : "ISO016000050",
+    "responseRule" : "BASE24"
+  },
+  "fields" : {
+    "60" : { "name" : "BASE24-atm Terminal Data", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 12 },
+    "61" : { "name" : "BASE24-atm Card Issuer and Authorizer Data", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 13 },
+    "126" : { "name" : "BASE24-atm Additional Data (tokens)", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999, "subFormat" : "BASE24_TOKENS" }
+  }
+}

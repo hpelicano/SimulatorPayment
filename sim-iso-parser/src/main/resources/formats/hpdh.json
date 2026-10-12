@@ -1,0 +1,25 @@
+{
+  "id" : "hpdh",
+  "name" : "HPDH (Hypercom POS / TPDU)",
+  "description" : "Terminal-to-host POS format: 5 byte TPDU header (ID 60 + destination NII + source NII, swapped on response), BCD MTI/numerics/length, ASCII text, binary bitmap. Template: adjust private fields 60-63 to the host specification.",
+  "extends" : "iso87-ascii",
+  "mtiEncoding" : "BCD",
+  "bitmapEncoding" : "BINARY",
+  "numericEncoding" : "BCD",
+  "textEncoding" : "ASCII",
+  "lengthEncoding" : "BCD",
+  "framing" : "LEN2_BINARY",
+  "header" : {
+    "length" : 5,
+    "encoding" : "BINARY",
+    "defaultValue" : "6000010000",
+    "responseRule" : "TPDU_SWAP"
+  },
+  "fields" : {
+    "35" : { "name" : "Track 2 Data", "type" : "Z", "lengthType" : "LLVAR", "length" : 37 },
+    "52" : { "name" : "PIN Block", "type" : "B", "lengthType" : "FIXED", "length" : 8, "sensitive" : true },
+    "60" : { "name" : "Private - Batch/Original Data", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999 },
+    "62" : { "name" : "Private - Invoice Number", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999 },
+    "63" : { "name" : "Private - Additional Data", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999 }
+  }
+}

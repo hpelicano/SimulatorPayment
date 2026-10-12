@@ -1,0 +1,64 @@
+[
+  {
+    "id": "ptlf-json",
+    "name": "PTLF - transacciones (script JSON)",
+    "description": "Ejecuta en OSS un script que extrae registros del PTLF entre dos horas y los devuelve como arreglo JSON. Adaptar la ruta del script a la instalacion.",
+    "commandTemplate": "/usr/local/b24sim/ptlf2json.sh ${ptlf} ${fromTime} ${toTime} ${maxRows}",
+    "parameters": [
+      { "name": "ptlf", "label": "Archivo PTLF", "pattern": "\\$[A-Z0-9]{1,8}\\.[A-Z0-9]{1,8}\\.[A-Z0-9]{1,8}", "defaultValue": "$DATA1.B24LOG.PT250926" },
+      { "name": "fromTime", "label": "Desde (HHMMSS)", "pattern": "\\d{6}", "defaultValue": "000000" },
+      { "name": "toTime", "label": "Hasta (HHMMSS)", "pattern": "\\d{6}", "defaultValue": "235959" },
+      { "name": "maxRows", "label": "Max. registros", "pattern": "\\d{1,5}", "defaultValue": "100" }
+    ],
+    "parser": { "type": "JSON", "jsonPointer": "" },
+    "mapping": {
+      "dialect": "base24-pos",
+      "mti": "MTI",
+      "responseCode": "RESP_CODE",
+      "fields": {
+        "2": "PAN",
+        "3": "PROC_CODE",
+        "4": "AMOUNT",
+        "7": "=${TRANSMISSION_DATETIME}",
+        "11": "STAN",
+        "12": "LOCAL_TIME",
+        "13": "LOCAL_DATE",
+        "22": "POS_ENTRY_MODE",
+        "32": "ACQ_INST_ID",
+        "35": "TRACK2",
+        "37": "RRN",
+        "41": "TERM_ID",
+        "42": "MERCHANT_ID",
+        "49": "CURRENCY"
+      }
+    }
+  },
+  {
+    "id": "sqlci-txn",
+    "name": "Tabla SQL/MP de transacciones (SQLCI)",
+    "description": "Consulta SQLCI via gtacl. Salida con columnas separadas por '|'.",
+    "commandTemplate": "echo \"SELECT MTI || '|' || PAN || '|' || PROC_CODE || '|' || AMOUNT || '|' || TERM_ID || '|' || RESP_CODE FROM ${subvol}.TXNLOG WHERE TXN_DATE = ${txnDate} FOR BROWSE ACCESS;\" | gtacl -p sqlci",
+    "parameters": [
+      { "name": "subvol", "label": "Subvolumen", "pattern": "\\$[A-Z0-9]{1,8}\\.[A-Z0-9]{1,8}" },
+      { "name": "txnDate", "label": "Fecha (YYMMDD)", "pattern": "\\d{6}" }
+    ],
+    "parser": { "type": "DELIMITED", "delimiter": "\\|", "headerLine": false, "columns": ["MTI", "PAN", "PROC_CODE", "AMOUNT", "TERM_ID", "RESP_CODE"] },
+    "mapping": {
+      "dialect": "base24-pos",
+      "mti": "MTI",
+      "responseCode": "RESP_CODE",
+      "fields": { "2": "PAN", "3": "PROC_CODE", "4": "AMOUNT", "7": "=${TRANSMISSION_DATETIME}", "11": "=${STAN}", "41": "TERM_ID", "49": "=032" }
+    }
+  },
+  {
+    "id": "caf-card",
+    "name": "CAF - datos de tarjeta",
+    "description": "Consulta el estado de una tarjeta en el CAF mediante un script que devuelve JSON.",
+    "commandTemplate": "/usr/local/b24sim/caf2json.sh ${subvol} ${pan}",
+    "parameters": [
+      { "name": "subvol", "label": "Subvolumen", "pattern": "\\$[A-Z0-9]{1,8}\\.[A-Z0-9]{1,8}" },
+      { "name": "pan", "label": "PAN", "pattern": "\\d{12,19}" }
+    ],
+    "parser": { "type": "JSON" }
+  }
+]

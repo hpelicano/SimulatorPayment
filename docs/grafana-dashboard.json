@@ -1,0 +1,396 @@
+{
+    "__inputs":  [
+                     {
+                         "label":  "Prometheus",
+                         "pluginId":  "prometheus",
+                         "name":  "DS_PROMETHEUS",
+                         "pluginName":  "Prometheus",
+                         "type":  "datasource"
+                     }
+                 ],
+    "title":  "SimulatorPayment - Base24",
+    "uid":  "simulator-payment",
+    "schemaVersion":  39,
+    "version":  1,
+    "refresh":  "5s",
+    "time":  {
+                 "to":  "now",
+                 "from":  "now-30m"
+             },
+    "tags":  [
+                 "simulator",
+                 "base24"
+             ],
+    "panels":  [
+                   {
+                       "id":  1,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  4,
+                                       "h":  4,
+                                       "x":  0
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "TPS",
+                                           "expr":  "simulator_tps_current",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "stat",
+                       "title":  "TPS actual"
+                   },
+                   {
+                       "id":  2,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  4,
+                                       "h":  4,
+                                       "x":  4
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "pico",
+                                           "expr":  "simulator_tps_peak",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "stat",
+                       "title":  "TPS pico"
+                   },
+                   {
+                       "id":  3,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "percentunit"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  4,
+                                       "h":  4,
+                                       "x":  8
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "aprobadas",
+                                           "expr":  "simulator_approval_rate",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "gauge",
+                       "title":  "Tasa de aprobacion"
+                   },
+                   {
+                       "id":  4,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "none"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  4,
+                                       "h":  4,
+                                       "x":  12
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "conectado",
+                                           "expr":  "simulator_acquirer_connected",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "stat",
+                       "title":  "Adquirente conectado"
+                   },
+                   {
+                       "id":  5,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "none"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  4,
+                                       "h":  4,
+                                       "x":  16
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "conexiones",
+                                           "expr":  "simulator_issuer_connections",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "stat",
+                       "title":  "Conexiones emisor"
+                   },
+                   {
+                       "id":  6,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "none"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  4,
+                                       "h":  4,
+                                       "x":  20
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "stress",
+                                           "expr":  "simulator_stress_running",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "stat",
+                       "title":  "Stress en ejecucion"
+                   },
+                   {
+                       "id":  7,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  4,
+                                       "w":  12,
+                                       "h":  8,
+                                       "x":  0
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "{{outcome}}",
+                                           "expr":  "sum by (outcome) (rate(simulator_transactions_total[1m]))",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "timeseries",
+                       "title":  "Transacciones/s por resultado"
+                   },
+                   {
+                       "id":  8,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  4,
+                                       "w":  12,
+                                       "h":  8,
+                                       "x":  12
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "{{source}}",
+                                           "expr":  "sum by (source) (rate(simulator_transactions_total[1m]))",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "timeseries",
+                       "title":  "Transacciones/s por origen"
+                   },
+                   {
+                       "id":  9,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "s"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  12,
+                                       "w":  12,
+                                       "h":  8,
+                                       "x":  0
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "p50",
+                                           "expr":  "histogram_quantile(0.50, sum by (le) (rate(simulator_latency_seconds_bucket[1m])))",
+                                           "refId":  "A"
+                                       },
+                                       {
+                                           "legendFormat":  "p95",
+                                           "expr":  "histogram_quantile(0.95, sum by (le) (rate(simulator_latency_seconds_bucket[1m])))",
+                                           "refId":  "B"
+                                       },
+                                       {
+                                           "legendFormat":  "p99",
+                                           "expr":  "histogram_quantile(0.99, sum by (le) (rate(simulator_latency_seconds_bucket[1m])))",
+                                           "refId":  "C"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "timeseries",
+                       "title":  "Latencia p50/p95/p99 (histograma)"
+                   },
+                   {
+                       "id":  10,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  12,
+                                       "w":  12,
+                                       "h":  8,
+                                       "x":  12
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "RC {{rc}}",
+                                           "expr":  "sum by (rc) (rate(simulator_response_codes_total[1m]))",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "timeseries",
+                       "title":  "Codigos de respuesta (DE39)/s"
+                   },
+                   {
+                       "id":  11,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  20,
+                                       "w":  12,
+                                       "h":  8,
+                                       "x":  0
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "{{outcome}}",
+                                           "expr":  "sum by (outcome) (rate(simulator_transactions_total{outcome=~\"TIMEOUT|ERROR\"}[1m]))",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "timeseries",
+                       "title":  "Timeouts y errores/s"
+                   },
+                   {
+                       "id":  12,
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "none"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "y":  20,
+                                       "w":  12,
+                                       "h":  8,
+                                       "x":  12
+                                   },
+                       "targets":  [
+                                       {
+                                           "legendFormat":  "{{mti}}",
+                                           "expr":  "sum by (mti) (simulator_transactions_by_mti_total)",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "${DS_PROMETHEUS}"
+                                      },
+                       "type":  "bargauge",
+                       "title":  "Transacciones por MTI"
+                   }
+               ]
+}

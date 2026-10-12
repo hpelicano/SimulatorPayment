@@ -1,0 +1,18 @@
+{
+  "id" : "mastercard-cis",
+  "name" : "Mastercard CIS (Banknet)",
+  "description" : "Mastercard Customer Interface Specification: EBCDIC MTI, numerics, text and length prefixes, binary bitmap. DE48 uses TCC + PDS subelements.",
+  "extends" : "iso87-ascii",
+  "mtiEncoding" : "EBCDIC",
+  "bitmapEncoding" : "BINARY",
+  "numericEncoding" : "EBCDIC",
+  "textEncoding" : "EBCDIC",
+  "lengthEncoding" : "EBCDIC",
+  "framing" : "LEN2_BINARY",
+  "header" : { "length" : 0 },
+  "fields" : {
+    "48" : { "name" : "Additional Data - Private (TCC + PDS)", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 999, "subFormat" : "POSITIONAL" },
+    "55" : { "name" : "ICC System Related Data", "type" : "B", "lengthType" : "LLLVAR", "length" : 255, "subFormat" : "BER_TLV" },
+    "61" : { "name" : "POS Data", "type" : "ANS", "lengthType" : "LLLVAR", "length" : 26 }
+  }
+}

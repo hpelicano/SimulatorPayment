@@ -1,0 +1,37 @@
+{
+  "id": "emv-purchase",
+  "name": "Compra EMV chip + PIN (HSM)",
+  "category": "POS",
+  "mti": "0200",
+  "description": "Requiere Cripto habilitado: DE52 'PIN:<pin>' se cifra con la ZPK, 9F26 (ARQC) se calcula con IMK-AC y DE64 se firma con la MAK.",
+  "variables": {
+    "PAN": "4761739001010010",
+    "TRACK2": "4761739001010010=25122011143804400000",
+    "AMOUNT": "000000010000",
+    "PIN": "1234",
+    "ATC": "0001",
+    "UN": "12345678"
+  },
+  "fields": {
+    "2": "${PAN}",
+    "3": "000000",
+    "4": "${AMOUNT}",
+    "7": "${TRANSMISSION_DATETIME}",
+    "11": "${STAN}",
+    "12": "${LOCAL_TIME}",
+    "13": "${LOCAL_DATE}",
+    "22": "051",
+    "23": "001",
+    "25": "00",
+    "32": "${ACQUIRER_ID:12345678901}",
+    "35": "${TRACK2}",
+    "37": "${RRN}",
+    "41": "${TERMINAL_ID:TERM0001}",
+    "42": "${MERCHANT_ID:MERCHANT0000001}",
+    "49": "${CURRENCY:032}",
+    "52": "PIN:${PIN}",
+    "55": "9F260800000000000000009F0206${AMOUNT}9F03060000000000009F1A0200329505000000000005F2A0200329A032501019C01009F3704${UN}82023C009F3602${ATC}9F100706010A03A00000",
+    "64": "0000000000000000"
+  },
+  "validation": { "name": "emv-purchase", "expectedResponseCode": "00" }
+}

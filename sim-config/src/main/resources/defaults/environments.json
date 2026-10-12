@@ -1,0 +1,102 @@
+{
+  "activeEnvironment" : "DEV",
+  "environments" : [
+    {
+      "name" : "DEV",
+      "description" : "Entorno local de laboratorio (loopback: el emisor simulado responde al adquirente simulado)",
+      "acquirer" : {
+        "host" : "127.0.0.1",
+        "port" : 9100,
+        "framing" : "LEN2_BINARY",
+        "dialect" : "base24-pos",
+        "timeoutMs" : 15000,
+        "connectTimeoutMs" : 5000,
+        "correlationFields" : [ 11, 41 ],
+        "tls" : { "enabled" : false }
+      },
+      "issuer" : {
+        "host" : "0.0.0.0",
+        "port" : 9100,
+        "framing" : "LEN2_BINARY",
+        "dialect" : "base24-pos",
+        "timeoutMs" : 15000,
+        "correlationFields" : [ 11, 41 ],
+        "tls" : { "enabled" : false }
+      },
+      "issuerRouting" : "FULL_DUPLEX",
+      "issuerOutbound" : {
+        "host" : "127.0.0.1",
+        "port" : 9101,
+        "framing" : "LEN2_BINARY",
+        "dialect" : "base24-pos",
+        "timeoutMs" : 15000,
+        "connectTimeoutMs" : 5000,
+        "correlationFields" : [ 11, 41 ],
+        "tls" : { "enabled" : false }
+      },
+      "issuerClient" : {
+        "host" : "127.0.0.1",
+        "port" : 9200,
+        "framing" : "LEN2_BINARY",
+        "dialect" : "base24-pos",
+        "timeoutMs" : 15000,
+        "connectTimeoutMs" : 5000,
+        "correlationFields" : [ 11, 41 ],
+        "tls" : { "enabled" : false }
+      },
+      "api" : {
+        "baseUrl" : "https://127.0.0.1:8443",
+        "transactionPath" : "/api/v1/transactions",
+        "authType" : "API_KEY",
+        "apiKeyHeader" : "X-API-Key",
+        "apiKey" : "change-me",
+        "timeoutMs" : 30000,
+        "maxRetries" : 1,
+        "tls" : {
+          "enabled" : true,
+          "protocols" : [ "TLSv1.2", "TLSv1.3" ],
+          "keyStorePath" : null,
+          "keyStorePassword" : null,
+          "trustStorePath" : null,
+          "trustStorePassword" : null,
+          "verifyHostname" : true,
+          "trustAll" : false
+        }
+      },
+      "guardian" : {
+        "host" : "10.0.0.10",
+        "port" : 22,
+        "username" : "SUPER.OPER",
+        "password" : null,
+        "privateKeyPath" : null,
+        "knownHostsPath" : null,
+        "strictHostKeyChecking" : true,
+        "connectTimeoutMs" : 10000,
+        "commandTimeoutMs" : 60000,
+        "defaultSubvolume" : "$DATA1.B24DATA"
+      },
+      "docBuilder" : {
+        "gtaclExecutable" : "gtacl",
+        "gtaclCommandTemplate" : "",
+        "ptlfCommandTemplate" : "",
+        "auditCommandTemplate" : "",
+        "ptlfParser" : { "type" : "RAW" },
+        "auditParser" : { "type" : "RAW" }
+      },
+      "pathway" : {
+        "mode" : "SSH",
+        "host" : "10.0.0.10",
+        "port" : 22,
+        "username" : "SUPER.OPER",
+        "password" : null,
+        "server_name" : "$B24PM",
+        "servers" : [ "$B24PM" ],
+        "strictHostKeyChecking" : true,
+        "taclPrompt" : "(?m)\\d+>\\s*$",
+        "prompt" : "=",
+        "lineTerminator" : "\r\n",
+        "timeoutMs" : 15000
+      }
+    }
+  ]
+}

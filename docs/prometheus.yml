@@ -1,0 +1,7 @@
+# Ejemplo de scrape para Prometheus (prometheus.yml)
+scrape_configs:
+  - job_name: simulator-payment
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9464']   # simulador GUI (puerto configurable en Configuración)
+      # - targets: ['agente1:9477', 'agente2:9477']   # agentes headless con --metrics

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.simulator</groupId>
+    <artifactId>simulator-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>SimulatorPayment - Simulador Transaccional</name>
+
+    <modules>
+        <module>sim-common</module>
+        <module>sim-config</module>
+        <module>sim-persistence</module>
+        <module>sim-iso-parser</module>
+        <module>sim-crypto</module>
+        <module>sim-validator</module>
+        <module>sim-transport</module>
+        <module>sim-api-client</module>
+        <module>sim-ssh</module>
+        <module>sim-base24</module>
+        <module>sim-acquirer</module>
+        <module>sim-issuer</module>
+        <module>sim-stats</module>
+        <module>sim-regression</module>
+        <module>sim-stress</module>
+        <module>sim-ui</module>
+        <module>sim-app</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.version>2.17.2</jackson.version>
+        <h2.version>2.2.224</h2.version>
+        <flyway.version>10.17.3</flyway.version>
+        <hikari.version>5.1.0</hikari.version>
+        <netty.version>4.1.112.Final</netty.version>
+        <jsch.version>0.2.19</jsch.version>
+        <hdrhistogram.version>2.2.2</hdrhistogram.version>
+        <slf4j.version>2.0.13</slf4j.version>
+        <logback.version>1.5.6</logback.version>
+        <javafx.version>21.0.4</javafx.version>
+        <atlantafx.version>2.0.1</atlantafx.version>
+        <ikonli.version>12.3.1</ikonli.version>
+        <junit.version>5.10.3</junit.version>
+        <assertj.version>3.26.3</assertj.version>
+        <sshd.version>2.13.2</sshd.version>
+        <pdfbox.version>3.0.3</pdfbox.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-common</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-config</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-persistence</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-iso-parser</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-validator</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-crypto</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-transport</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-api-client</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-ssh</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-base24</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-acquirer</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-issuer</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-stats</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-regression</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-stress</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.simulator</groupId><artifactId>sim-ui</artifactId><version>${project.version}</version></dependency>
+
+            <dependency><groupId>com.fasterxml.jackson</groupId><artifactId>jackson-bom</artifactId><version>${jackson.version}</version><type>pom</type><scope>import</scope></dependency>
+            <dependency><groupId>io.netty</groupId><artifactId>netty-bom</artifactId><version>${netty.version}</version><type>pom</type><scope>import</scope></dependency>
+            <dependency><groupId>org.junit</groupId><artifactId>junit-bom</artifactId><version>${junit.version}</version><type>pom</type><scope>import</scope></dependency>
+
+            <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><version>${h2.version}</version></dependency>
+            <dependency><groupId>org.flywaydb</groupId><artifactId>flyway-core</artifactId><version>${flyway.version}</version></dependency>
+            <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>${hikari.version}</version></dependency>
+            <dependency><groupId>com.github.mwiede</groupId><artifactId>jsch</artifactId><version>${jsch.version}</version></dependency>
+            <dependency><groupId>org.hdrhistogram</groupId><artifactId>HdrHistogram</artifactId><version>${hdrhistogram.version}</version></dependency>
+            <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>${slf4j.version}</version></dependency>
+            <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><version>${logback.version}</version></dependency>
+            <dependency><groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version></dependency>
+            <dependency><groupId>io.github.mkpaz</groupId><artifactId>atlantafx-base</artifactId><version>${atlantafx.version}</version></dependency>
+            <dependency><groupId>org.kordamp.ikonli</groupId><artifactId>ikonli-javafx</artifactId><version>${ikonli.version}</version></dependency>
+            <dependency><groupId>org.kordamp.ikonli</groupId><artifactId>ikonli-material2-pack</artifactId><version>${ikonli.version}</version></dependency>
+            <dependency><groupId>org.assertj</groupId><artifactId>assertj-core</artifactId><version>${assertj.version}</version></dependency>
+            <dependency><groupId>org.apache.sshd</groupId><artifactId>sshd-core</artifactId><version>${sshd.version}</version></dependency>
+            <dependency><groupId>org.apache.sshd</groupId><artifactId>sshd-sftp</artifactId><version>${sshd.version}</version></dependency>
+            <dependency><groupId>org.apache.pdfbox</groupId><artifactId>pdfbox</artifactId><version>${pdfbox.version}</version></dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId></dependency>
+        <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>org.assertj</groupId><artifactId>assertj-core</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><scope>test</scope></dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.3.1</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.4.2</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId><version>3.3.1</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.0</version></plugin>
+                <plugin><groupId>org.openjfx</groupId><artifactId>javafx-maven-plugin</artifactId><version>0.0.8</version></plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce</id>
+                        <goals><goal>enforce</goal></goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion><version>[17,)</version></requireJavaVersion>
+                                <requireMavenVersion><version>[3.8,)</version></requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

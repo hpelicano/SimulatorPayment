@@ -1,0 +1,9 @@
+{
+  "username" : null,
+  "displayName" : "Operador Simulador",
+  "theme" : "LIGHT",
+  "language" : "es",
+  "workspaceDir" : null,
+  "logRetentionDays" : 30,
+  "masterPasswordCheck" : null
+}

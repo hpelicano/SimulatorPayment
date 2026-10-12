@@ -1,0 +1,1 @@
+<configuration><appender name="C" class="ch.qos.logback.core.ConsoleAppender"><encoder><pattern>%d{HH:mm:ss.SSS} %-5level %logger{20} - %msg%n</pattern></encoder></appender><logger name="org.simulator" level="INFO"/><root level="WARN"><appender-ref ref="C"/></root></configuration>
